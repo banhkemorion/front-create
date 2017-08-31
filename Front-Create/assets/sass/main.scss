@@ -1,0 +1,22 @@
+/* stylelint-disable */
+@import 'node_modules/bootstrap/scss/_functions';
+@import '_variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
+/* stylelint-enable */
+
+body {
+    color: #fff;
+
+    .o-m-g {
+        max-width: 30px;
+        min-width: 30px;
+        width: 30px;
+
+        .a {
+            height: 50px;
+            width: 100px;
+            color: red;
+        }
+    }
+}
+

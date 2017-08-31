@@ -1,0 +1,53 @@
+{
+  "name": "node-js-getting-started",
+  "version": "0.2.6",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "node test.js",
+    "stylelint": "stylelint './assets/sass/*.scss' --config ./.stylelintrc; exit 0",
+    "build-js": "browserify assets/js/main.js -o public/js/main.js",
+    "build-sass": "node-sass assets/sass/main.scss public/stylesheets/main.css",
+    "build-min-js": "browserify assets/js/main.js | uglifyjs -o public/js/app.min.js",
+    "build-min-sass": "node-sass assets/sass/main.scss | cleancss -o public/stylesheets/main.css",
+    "watch-js": "nodemon -e js -w assets/js -x 'npm run build-js'",
+    "watch-sass": "nodemon -e scss -w assets/sass -x 'npm run build-sass; npm run stylelint'",
+    "build": "npm run build-js & npm run build-sass",
+    "watch": "npm run watch-js & npm run watch-sass"
+  },
+  "dependencies": {
+    "babelify": "^7.3.0",
+    "ejs": "2.5.6",
+    "envify": "^4.1.0",
+    "express": "4.15.2",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "clean-css": "^4.1.7",
+    "node-sass": "^4.5.3",
+    "request": "^2.81.0",
+    "tape": "^4.7.0",
+    "uglifyjs": "^2.4.11"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "envify"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
